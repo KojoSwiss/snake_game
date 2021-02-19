@@ -7,7 +7,7 @@ screen.bgcolor("black")
 start_position = [(0, 0), (-20, 0), (-40, 0)]
 
 for i in start_position:
-    new_segment = Turtle()
+    new_segment = Turtle(shape="square")
     new_segment.color("white")
     new_segment.goto(i)
 
