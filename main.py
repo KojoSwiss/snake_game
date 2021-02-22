@@ -1,5 +1,4 @@
 from turtle import Screen
-
 from score import Scoreboard
 from snake import Snake
 from food import Food
@@ -34,15 +33,16 @@ while game_is_on:
         scoreboard.increase_score()
 
     # Detect Wall
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() >280 or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
+        scoreboard.reset_game()
+        snake.reset_snake()
 
     # Detect tail
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            pass
+        elif snake.head.distance(segment) < 10:
+            scoreboard.reset_game()
 
 screen.title("Snake 1.0")
 screen.exitonclick()
